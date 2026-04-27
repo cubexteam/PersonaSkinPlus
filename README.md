@@ -12,11 +12,11 @@
 <br />
 <div align="center">
   <img src="https://raw.githubusercontent.com/presentkim-pm/PersonaSkin/main/assets/icon.png" alt="Logo" width="80" height="80">
-  <h3>PersonaSkin</h3>
+  <h3>PersonaSkinPlus</h3>
   <p align="center">
-    An plugin that shows persona skins made with the Character Creator correctly!
+    A plugin that shows persona skins made with the Character Creator correctly!
 
-[Contact to me][author-discord] · [Report a bug][issues-url] · [Request a feature][issues-url]
+[Report a bug][issues-url] · [Request a feature][issues-url]
 
   </p>
 </div>
@@ -32,10 +32,8 @@
 
 #### :question: What is a **persona skin**?
 
-**Persona skin** is a new format of skin created via the [**character creator
-**](https://minecraft.gamepedia.com/Character_creator)  
-It was added
-in [Bedrock_Edition_1.13.0](https://minecraft.gamepedia.com/Bedrock_Edition_1.13.0) [(released on October 29, 2019)](https://feedback.minecraft.net/hc/en-us/articles/360035247792)
+**Persona skin** is a new format of skin created via the [**character creator**](https://minecraft.gamepedia.com/Character_creator)  
+It was added in [Bedrock_Edition_1.13.0](https://minecraft.gamepedia.com/Bedrock_Edition_1.13.0) [(released on October 29, 2019)](https://feedback.minecraft.net/hc/en-us/articles/360035247792)
 
 - PMMP does not support this skin format, and makes it show as a skin filled with random colors.
 
@@ -45,7 +43,9 @@ in [Bedrock_Edition_1.13.0](https://minecraft.gamepedia.com/Bedrock_Edition_1.13
 
 ## Target software:
 
-This plugin officially only works with [`Pocketmine-MP`](https://github.com/pmmp/PocketMine-MP/).
+This plugin officially works with:
+- [`PocketMine-MP`](https://github.com/pmmp/PocketMine-MP/)
+- [`NetherGames PMMP`](https://github.com/NetherGamesMC/PocketMine-MP)
 
 ##
 
@@ -56,12 +56,6 @@ This plugin officially only works with [`Pocketmine-MP`](https://github.com/pmmp
 ### Download from [Github Releases][releases-url]
 
 [![Github Downloads][release-badge]][releases-url]
-
-###
-
-### Download from [Poggit Releases][poggit-release-url]
-
-[![Poggit Downloads][poggit-downloads-badge]][poggit-release-url]
 
 ##
 
@@ -85,34 +79,28 @@ Distributed under the **LGPL 3.0**. See [LICENSE][license-url] for more informat
 
 -----
 
-[author-discord]: https://discordapp.com/users/345772340279508993
+## Original Source
 
-[poggit-ci-badge]: https://poggit.pmmp.io/ci.shield/presentkim-pm/PersonaSkin/PersonaSkin?style=for-the-badge
+This plugin is based on [PersonaSkin](https://github.com/presentkim-pm/PersonaSkin) by [PresentKim](https://github.com/presentkim-pm)
 
-[poggit-version-badge]: https://poggit.pmmp.io/shield.api/PersonaSkin?style=for-the-badge
+##
 
-[poggit-downloads-badge]: https://poggit.pmmp.io/shield.dl.total/PersonaSkin?style=for-the-badge
+-----
 
-[version-badge]: https://img.shields.io/github/v/release/presentkim-pm/PersonaSkin?display_name=tag&style=for-the-badge&label=VERSION
+[version-badge]: https://img.shields.io/github/v/release/cubexteam/PersonaSkinPlus?display_name=tag&style=for-the-badge&label=VERSION
 
-[release-badge]: https://img.shields.io/github/downloads/presentkim-pm/PersonaSkin/total?style=for-the-badge&label=GITHUB%20
+[release-badge]: https://img.shields.io/github/downloads/cubexteam/PersonaSkinPlus/total?style=for-the-badge&label=GITHUB%20
 
-[stars-badge]: https://img.shields.io/github/stars/presentkim-pm/PersonaSkin.svg?style=for-the-badge
+[stars-badge]: https://img.shields.io/github/stars/cubexteam/PersonaSkinPlus.svg?style=for-the-badge
 
-[license-badge]: https://img.shields.io/github/license/presentkim-pm/PersonaSkin.svg?style=for-the-badge
+[license-badge]: https://img.shields.io/github/license/cubexteam/PersonaSkinPlus.svg?style=for-the-badge
 
-[poggit-ci-url]: https://poggit.pmmp.io/ci/presentkim-pm/PersonaSkin/PersonaSkin
+[stars-url]: https://github.com/cubexteam/PersonaSkinPlus/stargazers
 
-[poggit-release-url]: https://poggit.pmmp.io/p/PersonaSkin
+[releases-url]: https://github.com/cubexteam/PersonaSkinPlus/releases
 
-[stars-url]: https://github.com/presentkim-pm/PersonaSkin/stargazers
+[issues-url]: https://github.com/cubexteam/PersonaSkinPlus/issues
 
-[releases-url]: https://github.com/presentkim-pm/PersonaSkin/releases
-
-[issues-url]: https://github.com/presentkim-pm/PersonaSkin/issues
-
-[license-url]: https://github.com/presentkim-pm/PersonaSkin/blob/main/LICENSE
-
-[project-icon]: https://raw.githubusercontent.com/presentkim-pm/PersonaSkin/main/assets/icon.png
+[license-url]: https://github.com/cubexteam/PersonaSkinPlus/blob/main/LICENSE
 
 [project-preview]: https://raw.githubusercontent.com/presentkim-pm/PersonaSkin/main/assets/preview.gif
