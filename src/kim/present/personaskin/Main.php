@@ -14,7 +14,9 @@
  * (at your option) any later version.
  *
  * @author  PresentKim (debe3721@gmail.com)
+ * @author  SantianDev
  * @link    https://github.com/PresentKim
+ * @link    https://github.com/SantianDev
  * @license https://www.gnu.org/licenses/lgpl-3.0 LGPL-3.0 License
  *
  *   (\ /)
@@ -29,30 +31,40 @@ namespace kim\present\personaskin;
 use pocketmine\network\mcpe\convert\SkinAdapter;
 use pocketmine\network\mcpe\convert\TypeConverter;
 use pocketmine\plugin\PluginBase;
+use Throwable;
 
 class Main extends PluginBase{
 
-    private ?SkinAdapter $originalAdaptor = null;
+	private ?SkinAdapter $originalAdapter = null;
 
-    protected function onEnable() : void{
-        /**
-         * This is a plugin that does not use data folders.
-         * Delete the unnecessary data folder of this plugin for users.
-         */
-        $dataFolder = $this->getDataFolder();
-        if(is_dir($dataFolder) && count(scandir($dataFolder)) <= 2){
-            rmdir($dataFolder);
-        }
+	protected function onEnable() : void{
+		$dataFolder = $this->getDataFolder();
+		if(is_dir($dataFolder) && count(scandir($dataFolder)) <= 2){
+			rmdir($dataFolder);
+		}
 
-        $typeConverter = TypeConverter::getInstance();
+		$typeConverter = TypeConverter::getInstance();
 
-        $this->originalAdaptor = $typeConverter->getSkinAdapter();
-        $typeConverter->setSkinAdapter(new PersonaSkinAdapter());
-    }
+		$this->originalAdapter = $typeConverter->getSkinAdapter();
+		$this->getLogger()->debug("Replacing " . get_class($this->originalAdapter) . " with PersonaSkinAdapter");
 
-    protected function onDisable() : void{
-        if($this->originalAdaptor !== null){
-            TypeConverter::getInstance()->setSkinAdapter($this->originalAdaptor);
-        }
-    }
+		$typeConverter->setSkinAdapter(new PersonaSkinAdapter());
+	}
+
+	protected function onDisable() : void{
+		if($this->originalAdapter === null){
+			return;
+		}
+
+		try{
+			$converter = TypeConverter::getInstance();
+
+			if($converter->getSkinAdapter() instanceof PersonaSkinAdapter){
+				$this->getLogger()->debug("Restoring original adapter: " . get_class($this->originalAdapter));
+				$converter->setSkinAdapter($this->originalAdapter);
+			}
+		}catch(Throwable $e){
+			$this->getLogger()->warning("Failed to restore skin adapter: " . $e->getMessage());
+		}
+	}
 }
