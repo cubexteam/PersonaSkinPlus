@@ -16,7 +16,7 @@
  * @author  PresentKim (debe3721@gmail.com)
  * @author  SantianDev
  * @link    https://github.com/PresentKim
- * @link    https://github.com/SantianDev
+ * @link    https://github.com/cubexteam
  * @license https://www.gnu.org/licenses/lgpl-3.0 LGPL-3.0 License
  *
  *   (\ /)
