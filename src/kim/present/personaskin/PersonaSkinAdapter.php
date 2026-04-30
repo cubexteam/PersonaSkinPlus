@@ -30,26 +30,34 @@ use JsonException;
 use pocketmine\entity\Skin;
 use pocketmine\network\mcpe\convert\LegacySkinAdapter;
 use pocketmine\network\mcpe\protocol\types\skin\SkinData;
+use WeakMap;
 
 class PersonaSkinAdapter extends LegacySkinAdapter{
 
-    /**
-     * @var SkinData[]
-     * @phpstan-var array<int, SkinData>
-     */
-    private array $personaSkinData = [];
+	/**
+	 * WeakMap автоматически удаляет запись когда объект Skin уничтожается GC.
+	 * Это исправляет утечку памяти и баг с переиспользованием spl_object_id.
+	 *
+	 * @var WeakMap<Skin, SkinData>
+	 */
+	private WeakMap $personaSkinData;
 
-    public function fromSkinData(SkinData $data) : Skin{
-        $skin = parent::fromSkinData($data);
+	public function __construct(){
+		$this->personaSkinData = new WeakMap();
+	}
 
-        if($data->isPersona()){
-            $this->personaSkinData[spl_object_id($skin)] = $data;
-        }
-        return $skin;
-    }
+	public function fromSkinData(SkinData $data) : Skin{
+		$skin = parent::fromSkinData($data);
 
-    /** @throws JsonException */
-    public function toSkinData(Skin $skin) : SkinData{
-        return $this->personaSkinData[spl_object_id($skin)] ?? parent::toSkinData($skin);
-    }
+		if($data->isPersona()){
+			$this->personaSkinData[$skin] = $data;
+		}
+
+		return $skin;
+	}
+
+	/** @throws JsonException */
+	public function toSkinData(Skin $skin) : SkinData{
+		return $this->personaSkinData[$skin] ?? parent::toSkinData($skin);
+	}
 }
